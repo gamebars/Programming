@@ -3,7 +3,6 @@
 using namespace std;
 
 int main() {
-	setlocale(LC_ALL, "Russian");
     cout << "Введите три числа" << endl;
     double a, b, c;
 	cin >> a >> b >> c;

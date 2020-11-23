@@ -1,7 +1,0 @@
-﻿  ConsoleApplication1.cpp
-C:\Users\admin\Desktop\Project_X\ConsoleApplication1\ConsoleApplication1\fact.h(7,23): warning C4018: <=: несоответствие типов со знаком и без знака
-C:\Users\admin\Desktop\Project_X\ConsoleApplication1\ConsoleApplication1\perebor.h(8,19): warning C4244: аргумент: преобразование "unsigned __int64" в "unsigned int", возможна потеря данных
-C:\Users\admin\Desktop\Project_X\ConsoleApplication1\ConsoleApplication1\perebor.h(8,35): warning C4244: аргумент: преобразование "unsigned __int64" в "unsigned int", возможна потеря данных
-C:\Users\admin\Desktop\Project_X\ConsoleApplication1\ConsoleApplication1\perebor.h(8,52): warning C4244: аргумент: преобразование "unsigned __int64" в "unsigned int", возможна потеря данных
-C:\Users\admin\Desktop\Project_X\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.cpp(9,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
-  ConsoleApplication1.vcxproj -> C:\Users\admin\Desktop\Project_X\ConsoleApplication1\Debug\ConsoleApplication1.exe
