@@ -1,12 +1,15 @@
-print("Введите значения через 'Enter', каждое с новой строки")
-
-h1, m1 = map(int, input().split(sep=':'))
-h2, m2 = map(int, input().split(sep=':'))
-
-chislo1 = 60 * h1 + m1
-chislo2 = 60 * h1 + m2
-
-if abs(chislo2 - chislo1) > 15:
-    print('Встреча не состоится')
+h1,m1 = map(int,input().split(':'))
+h2,m2 = map(int,input().split(':'))
+if (0<=h1<=23 and 0<=m1<=59 and 0<=h2<=23 and 0<=m2<=59):
+	h1 = h1 * 60
+	person1 = h1 + m1
+	h2 = h2 * 60
+	person2 = h2 + m2
+	if (person2 - person1 <= 15 and person2 - person1 >= 0):
+		if (person2 - person1 >= -15 and person2 - person1 <= 0):
+			print('Встреча состоится')
+		print('Встреча состоится')
+	else:
+		print('Встреча не состоится')
 else:
-    print('Встреча состоится')
+	print('Неверные данные')
