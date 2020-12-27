@@ -272,13 +272,13 @@ root.mainloop()
 6. Скриншот графического интерфейса клиентского приложения созданного мною:
 
 
-![](https://github.com/gamebars/coding/tree/main/Lab/01/icon/client.png)
+![](./icon/client.png)
 
 Рис.1. Скриншот работы клиентского приложения.
 
 7. Скриншот браузера с загруженными виджетом созданного мною:
 
-![](https://github.com/gamebars/coding/tree/main/Lab/01/icon/browser.png)
+![](./icon/browser.png)
 
 Рис.2. Скриншот работы серверного приложения.
 
