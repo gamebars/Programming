@@ -12,8 +12,8 @@ std::string Shablon;
 
 void gen_response(const Request& req, Response& response) {
 
-	Client worldtimeapi("http://worldtimeapi.org");
-	auto res_worldtimeapi = worldtimeapi.Get("/api/timezone/Europe/Simferopol");
+	Client time("http://worldtimeapi.org");
+	auto res_worldtimeapi = time.Get("/api/timezone/Europe/Simferopol");
 
 	if (!res_worldtimeapi)
 	{
@@ -23,7 +23,7 @@ void gen_response(const Request& req, Response& response) {
 	else if (res_worldtimeapi->status != 200)
 	{
 
-		response.set_content("Результата не 200, а:" + std::to_string(res_worldtimeapi->status), "text/plain");
+		response.set_content("Ответ сервера времени не 200, а: " + std::to_string(res_worldtimeapi->status), "text/plain");
 		return;
 	}
 
@@ -38,7 +38,7 @@ void gen_response(const Request& req, Response& response) {
 	}
 	else if (res_openweathermap->status != 200)
 	{
-		response.set_content("Ответ сервера погоды не 200:" + std::to_string(res_openweathermap->status), "text/plain");
+		response.set_content("Ответ сервера погоды не 200,а: " + std::to_string(res_openweathermap->status), "text/plain");
 		return;
 	}
 
@@ -73,19 +73,19 @@ void gen_response(const Request& req, Response& response) {
 	if (!check) {
 		cache = res_openweathermap->body;
 	}
-	std::string additionalTemplate;
-	additionalTemplate = Shablon;
+	std::string copyShablon;
+	copyShablon = Shablon;
 	std::string one = "{hourly[i].weather[0].description}";
-	additionalTemplate.replace(additionalTemplate.find(one), one.length(), remember_way["weather"][0]["description"]);
+	copyShablon.replace(copyShablon.find(one), one.length(), remember_way["weather"][0]["description"]);
 
 	std::string two = "{hourly[i].weather[0].icon}";
-	additionalTemplate.replace(additionalTemplate.find(two), two.length(), remember_way["weather"][0]["icon"]);
+	copyShablon.replace(copyShablon.find(two), two.length(), remember_way["weather"][0]["icon"]);
 
 	std::string three = "{hourly[i].temp}";
-	additionalTemplate.replace(additionalTemplate.find(three), three.length(), std::to_string(int(remember_way["temp"].get<double>())));
-	additionalTemplate.replace(additionalTemplate.find(three), three.length(), std::to_string(int(remember_way["temp"].get<double>())));
+	copyShablon.replace(copyShablon.find(three), three.length(), std::to_string(int(remember_way["temp"].get<double>())));
+	copyShablon.replace(copyShablon.find(three), three.length(), std::to_string(int(remember_way["temp"].get<double>())));
 
-	response.set_content(additionalTemplate, "text/html");
+	response.set_content(copyShablon, "text/html");
 }
 
 
@@ -173,10 +173,10 @@ int main() {
 
 	Server svr;
 	svr.Get("/raw", gen_response_raw);
-	std::cout << "Server '/raw' is starting\n";
+
 
 	svr.Get("/", gen_response);
-	std::cout << "Server '/' is starting\n";
+	std::cout << "Server is.....ok\n";
 
 	svr.listen("localhost", 3000);
 
