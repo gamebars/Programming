@@ -11,6 +11,8 @@ using json = nlohmann::json;
 std::string Shablon;
 
 void gen_response(const Request& req, Response& response) {
+	
+
 
 	Client time("http://worldtimeapi.org");
 	auto res_worldtimeapi = time.Get("/api/timezone/Europe/Simferopol");
@@ -42,7 +44,7 @@ void gen_response(const Request& req, Response& response) {
 		return;
 	}
 
-
+		
 	std::string cache;
 
 	if (cache.empty())
@@ -166,7 +168,7 @@ void gen_response_raw(const Request& req, Response& response) {
 
 int main() {
 
-	std::ifstream file("Шаблон погоды.html");
+	std::ifstream file("template.html");
 	getline(file, Shablon, '\0');
 	file.close();
 
