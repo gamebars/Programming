@@ -15,13 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="webhooks.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="yandex.cpp">
+    <ClCompile Include="Alisa.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

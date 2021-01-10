@@ -1,0 +1,5 @@
+{
+    "webhooks": [
+        "http://localhost:3000/full"
+    ]
+}
