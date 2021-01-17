@@ -36,7 +36,7 @@
 | Практическая 26 - [[С++]](./Practice/26/C++/) | |
 | Практическая 27 - [[С++]](./Practice/27/C++/) [[Python]](./Practice/27/Python/) | |
 | Практическая 28 - [[С++]](./Practice/28/C++/) [[Python]](./Practice/28/Python/) | |
-| Практическая 29 - [[С++]](./Practice/29/C++/) [[Python]](./Practice/29/Python/) | |
+| Практическая 29 - [[С++]](./Practice/29/C++/) | |
 | Практическая 30 - [[С++]](./Practice/30/C++/) [[Python]](./Practice/30/Python/) | |
 | Практическая 31 - [[С++]](./Practice/31/C++/) [[Python]](./Practice/31/Python/) | |
 | Практическая 32 - [[С++]](./Practice/32/C++/) [[Python]](./Practice/32/Python/) | |

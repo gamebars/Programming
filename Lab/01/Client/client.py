@@ -6,7 +6,7 @@ def WeatherReload(event=None):
 	r = requests.get('http://localhost:3000/raw').content.decode("UTF8")
 	weather = json.loads(r)
 	description.config(text=str(weather["description"]))
-	temperature.config(text=str(weather["temp"]) + "°C")
+	temperature.config(text=str(round(weather["temp"])) + "°C")
 
 root = Tk()
 root.title("Погода")
@@ -23,7 +23,7 @@ BottomFrame.pack(side=BOTTOM, fill=X)
 
 city = Label(TopFrame, font=("Franklin Gothic Medium", 12), text="Симферополь", bg="#ffcd57")
 description = Label(TopFrame, font=("Georgia", 12), bg="#ffcd57")
-temperature = Label(MiddleFrame, font=("Impact", 60), bg="white")
+temperature = Label(MiddleFrame, font=("Impact", 50), bg="white")
 
 city.pack()
 description.pack()
