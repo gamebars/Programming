@@ -8,8 +8,8 @@
 
 | Практические | Лабораторные |
 |--------------|--------------|
-| Практическая 01 - [[С++]](./Practice/01/C++/) [[Python]](./Practice/01/Python/) |  [Лабораторная 01](./Labs/01/README.md) |
-| Практическая 02 - [[С++]](./Practice/02/C++/) [[Python]](./Practice/02/Python/) |  [Лабораторная 02](./Labs/02/README.md) |
+| Практическая 01 - [[С++]](./Practice/01/C++/) [[Python]](./Practice/01/Python/) |  [Лабораторная 01](./Labs/01/ReadMe.md) |
+| Практическая 02 - [[С++]](./Practice/02/C++/) [[Python]](./Practice/02/Python/) |  [Лабораторная 02](./Labs/02/ReadMe.md) |
 | Практическая 03 - [[С++]](./Practice/03/C++/) [[Python]](./Practice/03/Python/) |   |
 | Практическая 04 - [[С++]](./Practice/04/C++/) [[Python]](./Practice/04/Python/) | |
 | Практическая 05 - [[С++]](./Practice/05/C++/) [[Python]](./Practice/05/Python/) | |
