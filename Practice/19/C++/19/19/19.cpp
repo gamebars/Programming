@@ -1,20 +1,72 @@
-﻿// 19.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
+﻿#include <iostream>
+#include <string>
+#include <math.h>
 
-#include <iostream>
+void func0(std::string& str)
+{
+	for (int i = 0; i < str.length() / 2; i++)
+	{
+		char tmp = str[i];
+		str[i] = str[str.length() - 1 - i];
+		str[str.length() - 1 - i] = tmp;
+	}
+}
+
+std::string func1(int a, std::string str)
+{
+	int p = str.length();
+	std::string res("");
+	int counter = 0;
+
+	while (counter != a)
+	{
+		res += std::to_string(a % p);
+		a /= p;
+	}
+
+	func0(res);
+
+	return res;
+}
+
+int func2(char a)
+{
+	for (int i = char('0'), j = 0; i < std::numeric_limits<char>::max(); i++, j++)
+		if (a == char(i))
+			return j;
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	int n;
+	std::cin >> n;
+
+	std::string k;
+	std::cin >> k;
+
+	std::string str("");
+
+	for (int i = 0; i < n; i++)
+		str += '0';
+
+	std::string tmp;
+	for (int a = 0; a < pow(k.length(), n); a++)
+	{
+		tmp = func1(a, k);
+		for (int j = 0; j < tmp.length(); j++)
+			str[str.length() - 1 - j] = tmp[tmp.length() - 1 - j];
+
+		for (int j = 0; j < n; j++)
+		{
+			str[j] = k[func2(str[j])];
+		}
+		std::cout << str << ' ';
+
+		str = "";
+		for (int i = 0; i < n; i++)
+			str += '0';
+	}
+
+	std::cout << '\n';
+	return 0;
 }
-
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
