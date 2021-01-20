@@ -1,23 +1,32 @@
 ﻿#include <iostream>
-using namespace std;
-void print_factorization(unsigned int n) {
-    int divisor = 2;
-    while (divisor * divisor <= n)
-    {
-        if (n % divisor == 0)
-        {
-            cout << divisor;
-            n = n / divisor;
-            cout << '*';
-        }
-        else if (divisor == 2) divisor = 3;
-        else divisor = divisor + 2;
-    }
-    cout << n;
+
+void print_factorization(uint32_t n)
+{
+	if (n == 1) {
+		std::cout << 1;
+		return;
+	}
+	for (int i = 2, k = 0; i <= n; i++)
+	{
+		while (n % i == 0)
+		{
+			n /= i;
+			k++;
+		}
+		if (k != 0) {
+			std::cout << i;
+			if (k != 1)
+				std::cout << '^' << k;
+			if (n != 1)
+				std::cout << '*';
+		}
+		k = 0;
+	}
 }
-int main() {
-    int n;
-    cin >> n;
-    print_factorization(n);
-    return 0;
+
+int main()
+{
+	int n;
+	std::cin >> n;
+	print_factorization(n);
 }

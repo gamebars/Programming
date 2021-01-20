@@ -1,17 +1,9 @@
 ﻿#include<iostream>
-
 #include<vector>
-
 #include<ctime>
-
 #include <cstdlib>
-
 #include<string>
-
 using namespace std;
-
-
-
 struct Coin
 {
 	unsigned int count;
@@ -22,20 +14,17 @@ enum Element {
 	EARTH,
 	AIR
 };
-
 struct Rune
 {
 	short level;
 	Element element;
 };
-
 struct Weapon
 {
 	unsigned int damage;
 	short critical;
 	short durability;
 };
-
 struct Armor
 {
 	unsigned int guard;
@@ -48,7 +37,6 @@ enum ItemType
 	WEAPON,
 	ARMOR
 };
-
 struct Item
 {
 	ItemType character;
@@ -60,9 +48,7 @@ struct Item
 		Weapon weapon;
 		Armor armor;
 	}gift;
-
 };
-
 const vector<double> probability{ 50.0, 6.0, 13.0, 7.0, 14.0, 0.6, 1.3, 0.4, 1.7, 0.06, 0.13, 0.07, 0.14, 1.4, 1.4, 2.8 };
 Item prize(int score)
 {
@@ -154,15 +140,12 @@ LootBox generateLootBox()
 				lootbox.push_back(random_item);
 				break;
 			}
-
 			counter += probability[i];
 		}
 	}
 
 	return lootbox;
 }
-
-
 int main()
 {
 	setlocale(LC_ALL, "RUS");
