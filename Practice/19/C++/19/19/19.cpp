@@ -1,72 +1,127 @@
 ﻿#include <iostream>
 #include <string>
-#include <math.h>
+#include <vector>
+#include <unordered_set>
+#include <sstream>
 
-void func0(std::string& str)
+bool try_get_input(int& x)
 {
-	for (int i = 0; i < str.length() / 2; i++)
+	std::cin >> x;
+	if (std::cin.fail())
 	{
-		char tmp = str[i];
-		str[i] = str[str.length() - 1 - i];
-		str[str.length() - 1 - i] = tmp;
+		std::cin.clear();
+		std::cin.ignore(32767, '\n');
+		return false;
+	}
+
+	std::cin.ignore(32767, '\n');
+	return true;
+}
+
+void try_read(int& value)
+{
+	while (!try_get_input(value))
+	{
+		std::cout << "Неверный ввод. Повторите попытку." << std::endl;
 	}
 }
 
-std::string func1(int a, std::string str)
+void zfill(std::string& str, const size_t num)
 {
-	int p = str.length();
-	std::string res("");
-	int counter = 0;
+	if (num > str.size()) str.insert(0, num - str.size(), '0');
+}
 
-	while (counter != a)
+std::string convert(int value, int n, int k)
+{
+	std::stringstream stream;
+
+	while (value > 0)
 	{
-		res += std::to_string(a % p);
-		a /= p;
+		stream << std::to_string(value % k);
+		value /= k;
 	}
 
-	func0(res);
-
-	return res;
+	std::string result = stream.str();
+	std::reverse(result.begin(), result.end());
+	zfill(result, n);
+	return result;
 }
 
-int func2(char a)
-{
-	for (int i = char('0'), j = 0; i < std::numeric_limits<char>::max(); i++, j++)
-		if (a == char(i))
-			return j;
-}
 
-int main()
+void main()
 {
+	setlocale(LC_ALL, "Russian");
+
+	std::cout << "Введите число." << std::endl;
 	int n;
-	std::cin >> n;
-
 	std::string k;
-	std::cin >> k;
 
-	std::string str("");
-
-	for (int i = 0; i < n; i++)
-		str += '0';
-
-	std::string tmp;
-	for (int a = 0; a < pow(k.length(), n); a++)
+	while (true)
 	{
-		tmp = func1(a, k);
-		for (int j = 0; j < tmp.length(); j++)
-			str[str.length() - 1 - j] = tmp[tmp.length() - 1 - j];
+		try_read(n);
 
-		for (int j = 0; j < n; j++)
+		if (n < 1 || n > 8)
 		{
-			str[j] = k[func2(str[j])];
+			std::cout << "Число n находится вне границ [1; 8]. Повторите ввод." << std::endl;
+			continue;
 		}
-		std::cout << str << ' ';
 
-		str = "";
-		for (int i = 0; i < n; i++)
-			str += '0';
+		std::getline(std::cin, k);
+
+		if (k.length() < 1 || k.length() > n)
+		{
+			std::cout << "Длина строки меньше 1 или больше n. Повторите ввод." << std::endl;
+			continue;
+		}
+
+		break;
 	}
 
-	std::cout << '\n';
-	return 0;
+	std::vector<std::string> converted;
+
+	int klen = k.length();
+	for (int i = 0; i < (int)std::pow(klen, n); i++)
+	{
+		converted.push_back(convert(i, n, klen));
+	}
+
+	std::unordered_set<char> symbols;
+	for (int i = 0; i < klen; i++)
+	{
+		symbols.insert(i + '0');
+	}
+
+	std::vector<std::string> validated;
+
+	for (const std::string& word : converted)
+	{
+		std::unordered_set<char> set;
+
+		for (const char& chr : word)
+		{
+			set.insert(chr);
+		}
+
+		if (set == symbols)
+		{
+			validated.push_back(word);
+		}
+	}
+
+	std::stringstream result;
+
+	for (int i = 0; i < validated.size(); i++)
+	{
+		for (const char& chr : validated[i])
+		{
+			result << k[chr - '0'];
+		}
+
+		if (i < validated.size() - 1)
+		{
+			result << " ";
+		}
+	}
+
+	std::cout << result.str() << std::endl;
 }
