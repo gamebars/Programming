@@ -1,21 +1,15 @@
 #include <iostream>
-using namespace std;
-int main() {
-   cout << "¬ведите целое число." << endl;
 
-	long long n;
-	cin >> n;
-
-	int x = 0;
-	if (n >= 1) {
-		x++;
-	}
-
-	while (n > 1) {
-		n /= 2;
-		x++;
-	}
-
-	cout << x <<endl;
-	return 0;
+int main()
+{
+    int a, b, c;
+    c = 0;
+    b = 1;
+    std::cin >> a;
+    while (b < a)
+    {
+        c++;
+        b = b * 2;
+    }
+    std::cout << c;
 }
