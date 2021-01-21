@@ -11,7 +11,7 @@ int main()
     if ((s >= l1+l2) && (s <= r1+r2))
     {
         if (l1 + r2 - s == 0)
-            cout<<l1<<r2;
+            cout<<l1<<" "<<r2;
         else if (l1 + r2 - s < 0)
             cout<<l1 - (l1+r2-s);
         else if (l1 + r2 - s > 0)
